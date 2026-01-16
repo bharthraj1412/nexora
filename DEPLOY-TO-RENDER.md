@@ -95,3 +95,25 @@ npm install; npm run build
 ```
 dist
 ```
+
+## ⚠️ Troubleshooting
+
+**Error: `Could not open requirements file: ... No such file or directory: 'requirements.txt'`**
+
+This means Render is looking for the file in the wrong folder. You have two options:
+
+**Option A (Recommended):**
+1. Go to **Settings** in Render dashboard.
+2. Find **Root Directory**.
+3. Set it to `backend` (for backend service) or `frontend` (for static site).
+4. Save Changes.
+
+**Option B (Alternate Command):**
+If you cannot change the Root Directory, use these commands instead:
+
+**Backend:**
+- Build: `pip install -r backend/requirements.txt`
+- Start: `uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT`
+
+**Frontend:**
+- Build: `cd frontend && npm install && npm run build`
