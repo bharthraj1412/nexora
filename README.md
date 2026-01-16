@@ -14,40 +14,119 @@
 
 ---
 
-## 🔧 All Errors Fixed
+# NEXORA - Digital Workspace Platform
 
-✅ Missing Boolean import in `otp.py`  
-✅ Pydantic Rust compilation issue  
-✅ PostCSS frontend configuration  
-✅ Requirements.txt cleaned up  
+Production-grade digital workspace platform with enterprise-level authentication and secure data management.
 
----
+## ✨ Features
+
+- 🔐 **Enterprise Authentication** - Email/password, OTP, and Google OAuth
+- 📊 **Collections & Records** - Organize and manage your data
+- 🎨 **Modern UI** - Beautiful, responsive interface with dark mode
+- 🔒 **Security First** - JWT tokens, CSRF protection, audit logging
+- 📱 **Mobile Ready** - Works seamlessly on all devices
 
 ## 🚀 Quick Start
 
-### Backend:
-```powershell
-cd g:\projects\nexora\backend
-Remove-Item -Recurse -Force venv
-python -m venv venv
-.\venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-python -c "import asyncio; from app.core.database import init_db; asyncio.run(init_db())"
-uvicorn app.main:app --reload
+### Prerequisites
+
+- Python 3.11+
+- Node.js 18+
+- Git
+
+### Setup & Run (3 Steps)
+
+1. **Clone and navigate:**
+   ```bash
+   git clone https://github.com/bharthraj1412/nexora.git
+   cd nexora
+   ```
+
+2. **Setup environment:**
+   ```bash
+   # Backend
+   cd backend
+   python -m venv venv
+   venv\Scripts\activate  # On Windows
+   # source venv/bin/activate  # On Linux/Mac
+   pip install -r requirements.txt
+   cp .env.example .env
+   # Edit .env with your credentials (see ENV-SETUP.md)
+   cd ..
+
+   # Frontend
+   cd frontend
+   npm install
+   cp .env.example .env
+   # Edit .env with your API URL
+   cd ..
+   ```
+
+3. **Start everything:**
+   ```bash
+   start-all.bat  # On Windows
+   # Or manually: start-backend.bat and start-frontend.bat in separate terminals
+   ```
+
+**That's it!** 🎉
+
+- Frontend: http://localhost:5173
+- Backend API: http://localhost:8000
+- API Docs: http://localhost:8000/docs
+
+## 📚 Documentation
+
+- **[ENV-SETUP.md](ENV-SETUP.md)** - Detailed environment configuration guide
+- **[SETUP_GUIDE.md](SETUP_GUIDE.md)** - Complete setup and implementation guide
+- **[START.md](START.md)** - Step-by-step getting started guide
+- **[STRUCTURE.md](STRUCTURE.md)** - Project structure and architecture
+
+## 🛠️ Development
+
+### Individual Services
+
+**Backend only:**
+```bash
+start-backend.bat
 ```
 
-### Frontend:
-```powershell
-cd g:\projects\nexora\frontend
-npm run dev
+**Frontend only:**
+```bash
+start-frontend.bat
 ```
 
----
+### Environment Validation
 
-## ✅ Verification
+Check if your environment is properly configured:
+```bash
+check-env.bat
+```
 
-**Backend:** http://localhost:8000/docs  
-**Frontend:** http://localhost:5173
+## 🔧 Tech Stack
+
+**Backend:**
+- FastAPI (async Python web framework)
+- SQLAlchemy 2.0 (async ORM)
+- Alembic (database migrations)
+- Pydantic v2 (data validation)
+
+**Frontend:**
+- React 18 + TypeScript
+- Vite (build tool)
+- Tailwind CSS (styling)
+- Zustand (state management)
+
+## 📝 License
+
+MIT License - feel free to use this project for learning or production.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📧 Support
+
+For issues or questions, please open an issue on GitHub.
 
 ---
 
