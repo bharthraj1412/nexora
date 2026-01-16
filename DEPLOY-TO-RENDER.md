@@ -12,9 +12,9 @@ Create a new **Web Service** on Render and connect your GitHub repository.
 |---------|-------|
 | **Name** | `nexora-backend` |
 | **Runtime** | **Python 3** |
-| **Build Command** | `cd backend && pip install -r requirements.txt` |
-| **Start Command** | `cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT` |
-| **Root Directory** | `.` (Leave empty or set to root) |
+| **Root Directory** | `backend` |
+| **Build Command** | `pip install -r requirements.txt` |
+| **Start Command** | `uvicorn app.main:app --host 0.0.0.0 --port $PORT` |
 
 ### Environment Variables
 
@@ -43,9 +43,9 @@ Create a new **Static Site** on Render and connect the same repository.
 | Setting | Value |
 |---------|-------|
 | **Name** | `nexora-frontend` |
-| **Build Command** | `cd frontend && npm install && npm run build` |
-| **Publish Directory** | `frontend/dist` |
-| **Root Directory** | `.` (Leave empty) |
+| **Root Directory** | `frontend` |
+| **Build Command** | `npm install; npm run build` |
+| **Publish Directory** | `dist` |
 
 ### Environment Variables
 
@@ -71,23 +71,27 @@ Add these in the **Environment** tab:
 ## Summary of Commands
 
 ### Backend
+**Root Directory:** `backend`
+
 **Build Command:**
 ```bash
-cd backend && pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 **Start Command:**
 ```bash
-cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+uvicorn app.main:app --host 0.0.0.0 --port $PORT
 ```
 
 ### Frontend
+**Root Directory:** `frontend`
+
 **Build Command:**
 ```bash
-cd frontend && npm install && npm run build
+npm install; npm run build
 ```
 
 **Publish Directory:**
 ```
-frontend/dist
+dist
 ```
