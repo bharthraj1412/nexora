@@ -112,7 +112,7 @@ This means Render is looking for the file in the wrong folder. You have two opti
 If you cannot change the Root Directory, use these commands instead:
 
 **Backend:**
-- Build: `pip install -r backend/requirements.txt`
+- Build: `pip install --upgrade pip setuptools wheel && pip install -r backend/requirements.txt`
 - Start: `uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT`
 
 **Frontend:**
