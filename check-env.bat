@@ -94,11 +94,11 @@ echo ========================================
 if !ERRORS! EQU 0 (
     echo [SUCCESS] Environment is ready!
     echo You can now run: start-all.bat
+    endlocal
+    exit /b 0
 ) else (
     echo [FAILED] Found !ERRORS! issue(s)
     echo Please fix the errors above before starting
+    endlocal
+    exit /b 1
 )
-echo ========================================
-echo.
-
-endlocal
