@@ -117,3 +117,14 @@ If you cannot change the Root Directory, use these commands instead:
 
 **Frontend:**
 - Build: `cd frontend && npm install && npm run build`
+
+**Error: `pandas ... error: too few arguments to function ...`**
+
+This happens because Render tries to use Python 3.13 by default, which is too new for the pandas version we use.
+
+**Fix:**
+1. Go to **Environment** in Render dashboard.
+2. Add a new variable:
+   - Key: `PYTHON_VERSION`
+   - Value: `3.11.9`
+3. Save and Redeploy.
