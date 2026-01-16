@@ -75,7 +75,7 @@ Add these in the **Environment** tab:
 
 **Build Command:**
 ```bash
-pip install -r requirements.txt
+pip install --upgrade pip setuptools wheel && pip install -r requirements.txt
 ```
 
 **Start Command:**
