@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FiUser, FiLogOut, FiMoon, FiSun, FiSettings } from 'react-icons/fi';
+import { FiUser, FiLogOut, FiMoon, FiSun } from 'react-icons/fi';
 import { useAuthStore } from '../../store/authStore';
 import { useThemeStore } from '../../store/themeStore';
 import { useNavigate } from 'react-router-dom';

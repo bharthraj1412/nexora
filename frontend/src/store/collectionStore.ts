@@ -1,16 +1,16 @@
 import { create } from 'zustand';
 import { api } from '../utils/api';
 import toast from 'react-hot-toast';
-import { Collection, Record } from '../types';
+import { Collection, DataRecord } from '../types';
 
 interface CollectionState {
     collections: Collection[];
     currentCollection: Collection | null;
-    records: Record[];
+    records: DataRecord[];
     isLoading: boolean;
     fetchCollections: () => Promise<void>;
     fetchCollection: (id: string) => Promise<void>;
-    createCollection: (name: string, description: string) => Promise<void>;
+    createCollection: (name: string, description: string, fields?: any[], exampleItems?: any[]) => Promise<void>;
     updateCollection: (id: string, name: string, description: string) => Promise<void>;
     deleteCollection: (id: string) => Promise<void>;
     fetchRecords: (collectionId: string) => Promise<void>;

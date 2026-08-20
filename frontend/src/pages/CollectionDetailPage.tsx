@@ -57,10 +57,6 @@ export default function CollectionDetailPage() {
         setEditingRecord(null);
     };
 
-    const handleCreateExample = async (exampleData: any) => {
-        await createRecord(id!, exampleData);
-    };
-
     if (isLoading) {
         return <LoadingSpinner size="lg" />;
     }

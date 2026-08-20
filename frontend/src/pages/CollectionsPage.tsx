@@ -26,10 +26,6 @@ export default function CollectionsPage() {
     const [description, setDescription] = useState('');
     const [submitting, setSubmitting] = useState(false);
 
-    // Derived state for modals
-    const isCreateModalOpen = showModal && !editingId;
-    const isEditModalOpen = showModal && !!editingId;
-
     // Import state
     const [showFileUpload, setShowFileUpload] = useState(false);
     const [showImportPreview, setShowImportPreview] = useState(false);
@@ -108,7 +104,7 @@ export default function CollectionsPage() {
             });
 
             // Store preview data but keep file reference
-            setImportData(prev => ({ ...prev, ...data }));
+            setImportData((prev: Record<string, any> | null) => ({ ...prev, ...data }));
             setShowFileUpload(false);
             setShowImportPreview(true);
         } catch (error: any) {
@@ -359,7 +355,6 @@ export default function CollectionsPage() {
                         totalColumns={importData.total_columns}
                         schema={importData.schema}
                         preview={importData.preview}
-                        records={importData.records || []}
                         onConfirm={handleConfirmImport}
                         onCancel={handleCancelImport}
                         isLoading={importing}

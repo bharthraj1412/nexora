@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiFolder, FiFile, FiActivity, FiTrendingUp, FiPlus } from 'react-icons/fi';
+import { FiFolder, FiFile, FiActivity, FiPlus } from 'react-icons/fi';
 import { useCollectionStore } from '../store/collectionStore';
 import { useOnboardingStore } from '../store/onboardingStore';
 import { api } from '../utils/api';

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { FiActivity, FiFilter } from 'react-icons/fi';
 import { api } from '../utils/api';
 import { ActivityLog } from '../types';
@@ -13,11 +13,7 @@ export default function ActivityPage() {
     const [entityTypeFilter, setEntityTypeFilter] = useState('');
     const [actionFilter, setActionFilter] = useState('');
 
-    useEffect(() => {
-        fetchActivities();
-    }, [entityTypeFilter, actionFilter]);
-
-    const fetchActivities = async () => {
+    const fetchActivities = useCallback(async () => {
         setLoading(true);
         try {
             const params = new URLSearchParams();
@@ -39,7 +35,11 @@ export default function ActivityPage() {
         } finally {
             setLoading(false);
         }
-    };
+    }, [entityTypeFilter, actionFilter]);
+
+    useEffect(() => {
+        void fetchActivities();
+    }, [fetchActivities]);
 
     if (loading) {
         return <LoadingSpinner size="lg" />;

@@ -17,7 +17,6 @@ interface ImportPreviewProps {
         }>;
     };
     preview: Array<Record<string, any>>;
-    records?: Array<Record<string, any>>;
     onConfirm: (folderName: string, description: string, editedSchema: any) => void;
     onCancel: () => void;
     isOpen: boolean;
@@ -30,7 +29,6 @@ export default function ImportPreview({
     totalColumns,
     schema,
     preview,
-    records,
     onConfirm,
     onCancel,
     isOpen,
@@ -47,7 +45,7 @@ export default function ImportPreview({
         const errors: Record<string, string> = {};
         const labels = editedSchema.fields.map(f => f.label.trim().toLowerCase());
 
-        editedSchema.fields.forEach((field, index) => {
+        editedSchema.fields.forEach((field) => {
             const trimmed = field.label.trim();
 
             // Check for empty
@@ -136,7 +134,7 @@ export default function ImportPreview({
                         </span>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        {editedSchema.fields.map((field, index) => (
+                        {editedSchema.fields.map((field) => (
                             <div key={field.name} className="space-y-1">
                                 <div className="flex items-start gap-2">
                                     <div className="flex-1">

@@ -27,7 +27,7 @@ export interface Collection {
     record_count?: number;
 }
 
-export interface Record {
+export interface DataRecord {
     id: string;
     collection_id: string;
     data: Record<string, any>;
